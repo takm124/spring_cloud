@@ -73,6 +73,7 @@
 
   Zuul은 Spring Cloud Gateway로 대체될 수 있다.
 
-
+  
 
 - 이 부분은 강의에서만 확인하고 실제 사용은 Spring Cloud Gateway와 LoadBalancer에 집중하자
+
