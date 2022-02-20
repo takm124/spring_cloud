@@ -48,6 +48,7 @@ spring:
           filters:
             - RemoveRequestHeader=Cookie #request header값 초기화시켜서 사용
             - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+            - AuthorizationHeaderFilter
         - id: catalog-service
           uri: lb://CATALOG-SERVICE # lb = load balancer
           predicates:
@@ -64,3 +65,6 @@ spring:
             - CustomFilter
 #            - AddRequestHeader=second-request, second-request-header2
 #            - AddRequestHeader=second-response, second-response-header2
+
+token:
+  secret: user_token #키

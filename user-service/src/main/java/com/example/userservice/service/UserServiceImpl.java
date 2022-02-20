@@ -75,4 +75,14 @@ public class UserServiceImpl implements UserService{
                 new ArrayList<>()); //마지막은 권한을 추가하는 작업
     }
 
+    @Override
+    public UserDto getUserDetailsByEmail(String email) {
+        UserEntity userEntity = userRepository.findByEmail(email);
+        if (userEntity == null)
+            throw new UsernameNotFoundException("email 정보가 없습니다.");
+
+        UserDto userDto = new ModelMapper().map(userEntity, UserDto.class);
+
+        return userDto;
+    }
 }

@@ -31,3 +31,11 @@ eureka:
 # 임의의 속성
 greeting:
   message: Welcome to the Simple E-commerce
+
+logging:
+  level:
+    com.example.userservice: DEBUG
+
+token:
+  expiration_time: 86400000 # 만료일, 하루짜리
+  secret: user_token #키
