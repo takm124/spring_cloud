@@ -33,6 +33,8 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         http.csrf().disable(); //Cross-site request forgery, 브라우저간 통신
 //        http.authorizeRequests().antMatchers("/users/**").permitAll();
 
+        http.authorizeRequests().antMatchers("/actuator/**").permitAll();
+
         // 인증이 된 상태에서만 요청을 받을 수 있게끔 설정
         http.authorizeRequests().antMatchers("/**")
             .hasIpAddress("175.197.39.174") // IP 인증

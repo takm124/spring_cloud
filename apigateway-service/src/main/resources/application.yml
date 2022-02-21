@@ -49,6 +49,14 @@ spring:
             - RemoveRequestHeader=Cookie #request header값 초기화시켜서 사용
             - RewritePath=/user-service/(?<segment>.*), /$\{segment}
             - AuthorizationHeaderFilter
+          - id: user-service
+            uri: lb://USER-SERVICE
+            predicates:
+              - Path=/user-service/actuator/**
+              - Method=GET, POST
+            filters:
+              - RemoveRequestHeader=Cookie #request header값 초기화시켜서 사용
+              - RewritePath=/user-service/(?<segment>.*), /$\{segment}
         - id: catalog-service
           uri: lb://CATALOG-SERVICE # lb = load balancer
           predicates:
@@ -68,3 +76,9 @@ spring:
 
 token:
   secret: user_token #키
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health, beans, httptrace

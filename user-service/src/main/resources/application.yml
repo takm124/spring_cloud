@@ -36,6 +36,13 @@ logging:
   level:
     com.example.userservice: DEBUG
 
-token:
-  expiration_time: 86400000 # 만료일, 하루짜리
-  secret: user_token #키
+#token:
+#  expiration_time: 86400000 # 만료일, 하루짜리
+#  secret: user_token #키
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health, beans # micro service에서 가져오는 config를 refresh 하겠다.
+                                        # refresh는 POST로 전달해야함

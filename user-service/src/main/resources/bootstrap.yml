@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      uri: http://127.0.0.1:8888
+      name: ecommerce # repo에 새로 추가한 파일명 (ecommerce.yml)
+  profiles:
+    active: dev
